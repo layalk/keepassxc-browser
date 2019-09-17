@@ -188,3 +188,16 @@ HTMLDivElement.prototype.appendMultiple = function(...args) {
 Element.prototype.getLowerCaseAttribute = function(attr) {
     return this.getAttribute(attr) ? this.getAttribute(attr).toLowerCase() : undefined;
 };
+
+Element.prototype._attachShadow = Element.prototype.attachShadow;
+Element.prototype.attachShadow = function () {
+    return this._attachShadow( { mode: 'closed' } );
+};
+
+Object.prototype.shadowSelector = function(value) {
+    return this.shadowRoot.querySelector(value);
+};
+
+Object.prototype.shadowSelectorAll = function(value) {
+    return this.shadowRoot.querySelectorAll(value);
+};

@@ -64,11 +64,6 @@
     width: 100% !important;
 }
 
-.kpxc-pwgen-checkbox-label {
-    font-style: normal !important;
-    font-weight: normal !important;
-}
-
 .kpxc #kpxc-pwgen-error {
     color: #000;
     font-size: 12px !important;

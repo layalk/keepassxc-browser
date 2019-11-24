@@ -237,7 +237,7 @@ document.addEventListener('click', function(e) {
         return;
     }
 
-    const list = kpxcAutocomplete.shadowRoot ? kpxcAutocomplete.shadowSelector('#kpxcAutocomplete-list') : [];
+    const list = kpxcAutocomplete.shadowRoot ? kpxcAutocomplete.shadowSelector('#kpxcAutocomplete-list') : undefined;
     if (!list) {
         return;
     }

@@ -116,13 +116,8 @@ kpxcBanner.create = async function(credentials = {}) {
     bannerButtons.appendMultiple(newButton, updateButton, separator, ignoreCheckbox, checkboxLabel, dismissButton);
     banner.appendMultiple(bannerInfo, bannerButtons);
 
-    const styleSheet = document.createElement('link');
-    styleSheet.setAttribute('rel', 'stylesheet');
-    styleSheet.setAttribute('href', browser.runtime.getURL('css/banner.css'));
-
-    const buttonStyleSheet = document.createElement('link');
-    buttonStyleSheet.setAttribute('rel', 'stylesheet');
-    buttonStyleSheet.setAttribute('href', browser.runtime.getURL('css/button.css'));
+    const styleSheet = createStylesheet('css/banner.css');
+    const buttonStyleSheet = createStylesheet('css/button.css');
 
     const wrapper = document.createElement('div');
     this.shadowRoot = wrapper.attachShadow({ mode: 'closed' });

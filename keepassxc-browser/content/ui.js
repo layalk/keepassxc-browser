@@ -151,6 +151,13 @@ const DOMRectToArray = function(domRect) {
     return [ domRect.bottom, domRect.height, domRect.left, domRect.right, domRect.top, domRect.width, domRect.x, domRect.y ];
 };
 
+const createStylesheet = function(file) {
+    const stylesheet = document.createElement('link');
+    stylesheet.setAttribute('rel', 'stylesheet');
+    stylesheet.setAttribute('href', browser.runtime.getURL(file));
+    return stylesheet;
+};
+
 // Enables dragging
 document.addEventListener('mousemove', function(e) {
     if (kpxcPasswordDialog.selected === kpxcPasswordDialog.titleBar) {

@@ -37,17 +37,14 @@ kpxcAutocomplete.showList = function(inputField) {
     kpxcAutocomplete.closeList();
     kpxcAutocomplete.input = inputField;
 
-    const wrapper = kpxcUI.createElement('div', 'kpxc');
     const div = kpxcUI.createElement('div', 'kpxcAutocomplete-items', { 'id': 'kpxcAutocomplete-list' });
 
-    kpxcAutocomplete.shadowRoot = wrapper.attachShadow({ mode: 'closed' });
     kpxcAutocomplete.updatePosition(inputField, div);
     div.style.zIndex = '2147483646';
     
-    const styleSheet = document.createElement('link');
-    styleSheet.setAttribute('rel', 'stylesheet');
-    styleSheet.setAttribute('href', browser.runtime.getURL('css/autocomplete.css'));
-
+    const styleSheet = createStylesheet('css/autocomplete.css');
+    const wrapper = kpxcUI.createElement('div');
+    kpxcAutocomplete.shadowRoot = wrapper.attachShadow({ mode: 'closed' });
     kpxcAutocomplete.shadowRoot.append(styleSheet);
     kpxcAutocomplete.shadowRoot.append(div);
     kpxcAutocomplete.wrapper = wrapper;

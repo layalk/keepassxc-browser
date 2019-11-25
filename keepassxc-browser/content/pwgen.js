@@ -138,7 +138,7 @@ kpxcPasswordDialog.createDialog = function() {
     }
     kpxcPasswordDialog.created = true;
 
-    const wrapper = kpxcUI.createElement('div', 'kpxc');
+    const wrapper = kpxcUI.createElement('div');
     kpxcPasswordDialog.shadowRoot = wrapper.attachShadow({ mode: 'closed' });
 
     const dialog = kpxcUI.createElement('div', 'kpxc kpxc-pwgen-dialog');
@@ -179,12 +179,8 @@ kpxcPasswordDialog.createDialog = function() {
     buttonsRow.appendMultiple(generateButton, copyButton, fillButton);
     dialog.appendMultiple(titleBar, passwordRow, buttonsRow);
 
-    const styleSheet = document.createElement('link');
-    styleSheet.setAttribute('rel', 'stylesheet');
-    styleSheet.setAttribute('href', browser.runtime.getURL('css/pwgen.css'));
-    const buttonStyle = document.createElement('link');
-    buttonStyle.setAttribute('rel', 'stylesheet');
-    buttonStyle.setAttribute('href', browser.runtime.getURL('css/button.css'));
+    const styleSheet = createStylesheet('css/pwgen.css');
+    const buttonStyle = createStylesheet('css/button.css');
 
     kpxcPasswordDialog.shadowRoot.append(styleSheet);
     kpxcPasswordDialog.shadowRoot.append(buttonStyle);

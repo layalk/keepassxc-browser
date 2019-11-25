@@ -202,9 +202,9 @@ Element.prototype.attachShadow = function () {
 };
 
 Object.prototype.shadowSelector = function(value) {
-    return this.shadowRoot.querySelector(value);
+    return this.shadowRoot ? this.shadowRoot.querySelector(value) : undefined;
 };
 
 Object.prototype.shadowSelectorAll = function(value) {
-    return this.shadowRoot.querySelectorAll(value);
+    return this.shadowRoot ? this.shadowRoot.querySelectorAll(value) : undefined;
 };
